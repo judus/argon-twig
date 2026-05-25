@@ -9,11 +9,11 @@ namespace Maduser\Argon\Twig\Config;
  */
 final class TwigParameter
 {
-    public const string DEFAULT_PATH = 'twig.defaultPath';
-    public const string DEBUG = 'twig.debug';
-    public const string AUTO_RELOAD = 'twig.autoReload';
-    public const string STRICT_VARIABLES = 'twig.strictVariables';
-    public const string CACHE = 'twig.cache';
+    public const DEFAULT_PATH = 'twig.defaultPath';
+    public const DEBUG = 'twig.debug';
+    public const AUTO_RELOAD = 'twig.autoReload';
+    public const STRICT_VARIABLES = 'twig.strictVariables';
+    public const CACHE = 'twig.cache';
 
     /**
      * @psalm-suppress UnusedConstructor
