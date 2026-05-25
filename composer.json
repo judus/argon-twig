@@ -1,0 +1,62 @@
+{
+  "name": "maduser/argon-twig",
+  "description": "Twig integration for the Argon runtime stack.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julien Duseyau",
+      "email": "julien.duseyau@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "maduser/argon-container": "^1.0",
+    "twig/twig": "^3.20"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
+    "phpunit/phpunit": "^11.5",
+    "slevomat/coding-standard": "^8.24",
+    "squizlabs/php_codesniffer": "^4.0",
+    "vimeo/psalm": "^6.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Maduser\\Argon\\Twig\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "scripts": {
+    "phpcs": "vendor/bin/phpcs --standard=phpcs.xml",
+    "phpcs:fix": "vendor/bin/phpcbf --standard=phpcs.xml",
+    "psalm": "vendor/bin/psalm --output-format=github",
+    "psalm:clear": "vendor/bin/psalm --clear-cache",
+    "test": "vendor/bin/phpunit",
+    "test:coverage": "mkdir -p .phpunit/coverage/html && vendor/bin/phpunit --coverage-html .phpunit/coverage/html --coverage-clover .phpunit/coverage/clover.xml",
+    "tu": "vendor/bin/phpunit --testsuite=unit",
+    "check:syntax": "find src tests -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l",
+    "check": [
+      "@check:syntax",
+      "@test",
+      "@psalm",
+      "@phpcs"
+    ],
+    "ci": [
+      "@check"
+    ]
+  }
+}
